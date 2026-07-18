@@ -1,0 +1,14 @@
+{
+  "name": "onepager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-page civic website built with Tailwind CSS",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./styles.css --minify"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
