@@ -4,41 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prima i numeri, poi il cemento</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                navy: "#082a54",
-                blue: "#3f7eb9",
-                paleBlue: "#e8f0f6",
-                sage: "#eef3ea",
-                green: "#7f9771",
-                sand: "#f8f7f2",
-              },
-            },
-            boxShadow: {
-              soft: "0 18px 45px rgba(8, 42, 84, 0.08)",
-            },
-          },
-        },
-      };
-    </script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body class="bg-brand-sand text-slate-800">
     <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div class="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
         <a href="#top" class="text-lg font-extrabold uppercase tracking-wide text-brand-navy">
           Prima i numeri
         </a>
-        <nav class="hidden flex-wrap items-center gap-5 text-sm font-semibold text-slate-700 md:flex">
+        <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-slate-700">
           <a href="#overview" class="transition hover:text-brand-blue">Sintesi</a>
           <a href="#case-private" class="transition hover:text-brand-blue">Case private</a>
           <a href="#edilizia-sociale" class="transition hover:text-brand-blue">Edilizia sociale</a>
@@ -53,7 +27,7 @@
       <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
         <div class="overflow-hidden rounded-3xl bg-white shadow-soft">
           <img
-            src="./QUALINUMERI.png"
+            src="/QUALINUMERI.png"
             alt="La città del futuro con quali numeri? Prima i numeri, poi il cemento"
             class="w-full"
           />

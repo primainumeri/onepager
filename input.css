@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #082a54;
+  --color-brand-blue: #3f7eb9;
+  --color-brand-paleBlue: #e8f0f6;
+  --color-brand-sage: #eef3ea;
+  --color-brand-green: #7f9771;
+  --color-brand-sand: #f8f7f2;
+  --shadow-soft: 0 18px 45px rgba(8, 42, 84, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+}
