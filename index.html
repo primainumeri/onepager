@@ -3,392 +3,1166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prima i numeri, poi il cemento</title>
+
+    <!-- SEO -->
+    <title>Prima i numeri, poi il cemento — Guida civica al PUC di Santa Marina</title>
+    <meta name="description" content="Quattro osservazioni al PUC di Santa Marina spiegate in parole semplici, con documenti completi, fonti e aggiornamenti sul procedimento." />
+    <link rel="canonical" href="https://primainumeri.github.io/onepager/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://primainumeri.github.io/onepager/" />
+    <meta property="og:title"       content="Prima i numeri, poi il cemento — Guida civica al PUC di Santa Marina" />
+    <meta property="og:description" content="Quattro osservazioni al PUC di Santa Marina spiegate in parole semplici, con documenti completi, fonti e aggiornamenti sul procedimento." />
+    <meta property="og:image"       content="https://primainumeri.github.io/onepager/QUALINUMERI.png" />
+    <meta property="og:locale"      content="it_IT" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Prima i numeri, poi il cemento — Guida civica al PUC di Santa Marina" />
+    <meta name="twitter:description" content="Quattro osservazioni al PUC di Santa Marina spiegate in parole semplici, con documenti completi, fonti e aggiornamenti sul procedimento." />
+    <meta name="twitter:image"       content="https://primainumeri.github.io/onepager/QUALINUMERI.png" />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      /* Reduced motion */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+      }
+      /* Focus ring */
+      :focus-visible { outline: 3px solid #3f7eb9; outline-offset: 3px; }
+      /* Details/summary arrow */
+      details summary::-webkit-details-marker { display: none; }
+      details summary::marker { display: none; }
+      /* Timeline connector */
+      .timeline-item + .timeline-item { border-top: 0; }
+    </style>
   </head>
+
   <body class="bg-brand-sand text-slate-800">
-    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl flex-col items-start gap-4 px-4 py-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <a href="#top" class="text-lg font-extrabold uppercase tracking-wide text-brand-navy">
-          Prima i numeri
-        </a>
-        <nav class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm font-semibold text-slate-700">
-          <a href="#overview" class="transition hover:text-brand-blue">Sintesi</a>
-          <a href="#case-private" class="transition hover:text-brand-blue">Case private</a>
-          <a href="#edilizia-sociale" class="transition hover:text-brand-blue">Edilizia sociale</a>
-          <a href="#turismo" class="transition hover:text-brand-blue">Turismo</a>
-          <a href="#ambiente" class="transition hover:text-brand-blue">Ambiente</a>
-          <a href="#richieste" class="transition hover:text-brand-blue">Richieste</a>
-        </nav>
+
+    <!-- ════════════════════════════════════════════════
+         NAVIGAZIONE (sticky)
+    ═════════════════════════════════════════════════ -->
+    <header id="top" class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-3">
+          <a href="#hero" class="text-sm font-extrabold uppercase tracking-wide text-brand-navy" aria-label="Torna all'inizio — Prima i numeri">
+            Prima i numeri
+          </a>
+
+          <!-- Hamburger (mobile) -->
+          <button
+            id="nav-toggle"
+            type="button"
+            aria-controls="mobile-nav"
+            aria-expanded="false"
+            aria-label="Apri menu di navigazione"
+            class="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 md:hidden"
+          >
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path id="nav-icon-open"   stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <path id="nav-icon-close"  stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="hidden" />
+            </svg>
+          </button>
+
+          <!-- Desktop nav -->
+          <nav aria-label="Navigazione principale" class="hidden md:flex md:flex-wrap md:items-center md:gap-x-5 md:gap-y-1">
+            <a href="#breve"       class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">In breve</a>
+            <a href="#perche"      class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Perché nasce</a>
+            <a href="#osservazioni" class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Osservazioni</a>
+            <a href="#documenti"   class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Documenti</a>
+            <a href="#stato"       class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Stato</a>
+            <a href="#richieste"   class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Richieste</a>
+            <a href="#faq"         class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">FAQ</a>
+            <a href="#fonti"       class="text-sm font-semibold text-slate-700 transition hover:text-brand-blue">Fonti</a>
+          </nav>
+        </div>
+
+        <!-- Mobile nav (collapsible) -->
+        <div id="mobile-nav" class="hidden border-t border-slate-100 pb-3 md:hidden" aria-label="Navigazione principale mobile">
+          <nav class="flex flex-col gap-0.5 pt-2">
+            <a href="#breve"        class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">In breve</a>
+            <a href="#perche"       class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Perché nasce</a>
+            <a href="#osservazioni" class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Osservazioni</a>
+            <a href="#documenti"    class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Documenti</a>
+            <a href="#stato"        class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Stato</a>
+            <a href="#richieste"    class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Richieste</a>
+            <a href="#faq"          class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">FAQ</a>
+            <a href="#fonti"        class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue">Fonti</a>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <main id="top">
-      <section class="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+    <main>
+
+      <!-- ════════════════════════════════════════════════
+           1. HERO
+      ═════════════════════════════════════════════════ -->
+      <section id="hero" class="mx-auto max-w-6xl px-4 pt-8 pb-4 sm:px-6 lg:px-8 lg:pt-12" aria-labelledby="hero-h1">
+        <!-- Immagine header -->
         <div class="overflow-hidden rounded-3xl bg-white shadow-soft">
           <img
             src="QUALINUMERI.png"
-            alt="La città del futuro con quali numeri? Prima i numeri, poi il cemento"
+            alt="Grafica con scritta: La città del futuro — con quali numeri? Prima i numeri, poi il cemento."
             class="w-full"
+            width="1200"
+            height="630"
+            loading="eager"
           />
         </div>
-      </section>
 
-      <section id="overview" class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
-        <div class="space-y-6">
-          <div class="space-y-6">
-            <div class="space-y-4">
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue">Guida civica al PUC di Santa Marina</p>
-              <h1 class="text-4xl font-black uppercase leading-tight text-brand-navy sm:text-5xl">
-                Le quattro osservazioni spiegate in parole semplici
-              </h1>
-              <p class="max-w-3xl text-lg leading-8 text-slate-700">
-                Il PUC decide dove e quanto si potrà costruire nei prossimi anni: case, edilizia sociale,
-                strutture turistiche, attività e servizi. Questa guida chiede di capire, prima delle decisioni
-                irreversibili, quali numeri siano stati usati e se il territorio possa sostenerli.
-              </p>
-            </div>
+        <!-- Testo hero -->
+        <div class="mt-8 space-y-3">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue" aria-hidden="true">
+            LA CITTÀ DEL FUTURO · CON QUALI NUMERI?
+          </p>
+          <h1 id="hero-h1" class="text-4xl font-black uppercase leading-tight text-brand-navy sm:text-5xl lg:text-6xl">
+            Prima i numeri,<br />poi il cemento
+          </h1>
+          <p class="max-w-2xl text-xl font-semibold leading-relaxed text-slate-700">
+            Perché i numeri si possono correggere. Il suolo consumato no.
+          </p>
+          <p class="max-w-2xl text-base text-slate-600">
+            Guida civica al PUC di Santa Marina
+          </p>
 
-            <div class="rounded-3xl bg-brand-navy px-6 py-8 text-center text-white shadow-soft sm:px-10">
-              <p class="text-xl font-bold leading-9">
-                Queste verifiche non sono un capriccio del cittadino. Il PTCP della Provincia, le norme dello
-                stesso PUC e la disciplina della VAS stabiliscono criteri per calcolare i fabbisogni, considerare il
-                patrimonio esistente, valutare gli effetti ambientali, confrontare alternative e monitorare i
-                risultati.
-              </p>
-              <p class="mt-4 text-base leading-7 text-slate-100">
-                Le osservazioni chiedono di mostrare in modo pubblico e comprensibile come tali regole siano state
-                applicate.
-              </p>
-            </div>
+          <!-- CTA -->
+          <div class="flex flex-wrap gap-3 pt-3">
+            <a
+              href="#breve"
+              class="rounded-xl bg-brand-navy px-5 py-3 text-sm font-bold text-white shadow transition hover:bg-brand-blue"
+            >
+              Capisci tutto in 2 minuti
+            </a>
+            <a
+              href="Prima_i_numeri_PUC_Santa_Marina_guida_civica.pdf"
+              target="_blank"
+              rel="noopener"
+              class="rounded-xl bg-brand-green px-5 py-3 text-sm font-bold text-white shadow transition hover:opacity-90"
+            >
+              Scarica la guida civica
+            </a>
+            <a
+              href="#documenti"
+              class="rounded-xl border-2 border-brand-navy px-5 py-3 text-sm font-bold text-brand-navy transition hover:bg-brand-navy hover:text-white"
+            >
+              Consulta i documenti
+            </a>
           </div>
-
         </div>
       </section>
 
-      <section class="mx-auto grid max-w-6xl gap-6 px-4 pb-14 sm:grid-cols-2 sm:px-6 lg:px-8">
-        <a href="#case-private" class="block rounded-3xl border border-slate-200 bg-brand-paleBlue p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-          <h2 class="text-2xl font-black uppercase text-brand-navy">1. Case private</h2>
-          <p class="mt-4 text-lg leading-8">54 nuovi alloggi in 12 aree. Solo 33 delle 1.097 abitazioni non occupate nel 2011 sono considerate recuperabili.</p>
-          <p class="mt-4 font-semibold text-slate-700">Domanda: dov'è l'inventario che giustifica il 3%?</p>
-        </a>
-        <a href="#edilizia-sociale" class="block rounded-3xl border border-slate-200 bg-brand-sage p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-          <h2 class="text-2xl font-black uppercase text-brand-navy">2. Edilizia sociale</h2>
-          <p class="mt-4 text-lg leading-8">36 alloggi ERP in 4 aree su terreni indicati come da acquisire.</p>
-          <p class="mt-4 font-semibold text-slate-700">Domanda: quante famiglie ne hanno bisogno e quali alternative esistono?</p>
-        </a>
-        <a href="#turismo" class="block rounded-3xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-          <h2 class="text-2xl font-black uppercase text-brand-navy">3. Turismo</h2>
-          <p class="mt-4 text-lg leading-8">21 ambiti turistici, senza un limite chiaro di posti letto per ogni area.</p>
-          <p class="mt-4 font-semibold text-slate-700">Domanda: qual è il tetto complessivo e quali reti lo sostengono?</p>
-        </a>
-        <a href="#ambiente" class="block rounded-3xl border border-slate-200 bg-brand-paleBlue p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
-          <h2 class="text-2xl font-black uppercase text-brand-navy">4. Ambiente</h2>
-          <p class="mt-4 text-lg leading-8">Nella VAS compaiono Aquara, Felitto e la Riserva del Calore; diversi indicatori risultano non calcolati.</p>
-          <p class="mt-4 font-semibold text-slate-700">Domanda: dati e giudizi sono realmente riferiti a Santa Marina e al Bussento?</p>
-        </a>
-      </section>
-
-      <section class="bg-white py-14">
-        <div class="mx-auto max-w-6xl space-y-8 px-4 sm:px-6 lg:px-8">
-          <div id="case-private" class="scroll-mt-28 grid gap-6 rounded-3xl border border-slate-200 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 1</p>
-              <h2 class="mt-3 text-3xl font-black uppercase text-brand-navy">Nuove abitazioni private</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-700">
-                Prima di aprire nuove aree edificabili, bisogna sapere quante case servono davvero e quante
-                possono essere recuperate.
-              </p>
-              <div class="mt-6 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">54</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Nuovi alloggi</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">12</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Ambiti AT/rcu</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">1.097</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Abitazioni non occupate</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">33</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Considerate recuperabili</p>
-                </div>
-              </div>
-            </div>
-            <div class="grid gap-5">
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il piano</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Il PUC localizza 54 nuovi alloggi privati in dodici aree di trasformazione e considera recuperabili
-                  solo 33 abitazioni su 1.097 non occupate nel 2011.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Non emerge un inventario completo e aggiornato capace di distinguere case vuote, seconde case,
-                  immobili degradati, locazioni turistiche e patrimonio realmente recuperabile.
-                </p>
-              </div>
-              <div class="rounded-2xl border border-brand-blue/20 bg-brand-paleBlue p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Il PTCP richiede di calcolare il fabbisogno abitativo su famiglie, bisogno arretrato e futuro,
-                  orizzonte decennale, stock esistente e possibilità di recupero; anche le NTA del PUC richiamano
-                  inventario e priorità del riuso.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-navy p-5 text-white">
-                <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-7 text-slate-100">
-                  <li>• Aggiornare i dati su popolazione e famiglie.</li>
-                  <li>• Censire e classificare le abitazioni esistenti.</li>
-                  <li>• Calcolare il fabbisogno residuo dopo recupero e capacità già disponibile.</li>
-                  <li>• Ridurre o sospendere le aree non giustificate dai numeri aggiornati.</li>
-                </ul>
-              </div>
-            </div>
+      <!-- ════════════════════════════════════════════════
+           2. PERCHÉ NASCE QUESTA PAGINA
+      ═════════════════════════════════════════════════ -->
+      <section id="perche" class="scroll-mt-20 mt-12 bg-white py-14" aria-labelledby="perche-h2">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Iniziativa civica</p>
+          <h2 id="perche-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">
+            Perché nasce questa pagina
+          </h2>
+          <div class="mt-6 max-w-3xl space-y-5 text-lg leading-8 text-slate-700">
+            <p>
+              Questa pagina nasce dalla lettura degli elaborati del nuovo Piano Urbanistico Comunale di Santa Marina.
+            </p>
+            <p>
+              Sono state predisposte quattro osservazioni riguardanti le nuove abitazioni private, l'edilizia
+              sociale, le previsioni turistico-ricettive e la Valutazione Ambientale Strategica.
+            </p>
+            <p>
+              L'iniziativa parte dal lavoro di un cittadino, ma non nasce per promuovere una persona, una
+              candidatura o una lista. L'obiettivo è mettere documenti e strumenti a disposizione della comunità
+              e rendere più comprensibili scelte destinate a produrre effetti duraturi sul territorio.
+            </p>
+            <p>
+              Non si chiede di fidarsi di chi ha scritto le osservazioni. Si chiede di poter controllare i
+              numeri, le fonti e le risposte dell'Amministrazione.
+            </p>
           </div>
 
-          <div id="edilizia-sociale" class="scroll-mt-28 grid gap-6 rounded-3xl border border-slate-200 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 2</p>
-              <h2 class="mt-3 text-3xl font-black uppercase text-brand-navy">Edilizia sociale e case popolari</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-700">
-                Il diritto alla casa va sostenuto, ma domanda reale, patrimonio disponibile, costi e modalità
-                devono essere chiari prima di costruire o acquisire terreni.
-              </p>
-              <div class="mt-6 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">36</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Alloggi ERP previsti</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">4</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Ambiti AT/erp</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">16.668 m²</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Superficie territoriale</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">?</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Costi, fondi e tempi</p>
-                </div>
-              </div>
+          <div class="mt-10 grid gap-6 sm:grid-cols-2">
+            <!-- Che cosa NON è -->
+            <div class="rounded-2xl border border-slate-200 bg-brand-sand p-6">
+              <h3 class="text-base font-extrabold uppercase text-brand-navy">Che cosa non è</h3>
+              <ul class="mt-4 space-y-3 text-slate-700" role="list">
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0 font-bold text-slate-400" aria-hidden="true">✗</span>
+                  Non è una campagna contro ogni nuova costruzione.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0 font-bold text-slate-400" aria-hidden="true">✗</span>
+                  Non è una campagna contro il turismo.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0 font-bold text-slate-400" aria-hidden="true">✗</span>
+                  Non è una campagna contro l'edilizia sociale.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0 font-bold text-slate-400" aria-hidden="true">✗</span>
+                  Non sostiene liste o candidati.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0 font-bold text-slate-400" aria-hidden="true">✗</span>
+                  Non chiede di annullare automaticamente il Piano per alcuni errori materiali.
+                </li>
+              </ul>
             </div>
-            <div class="grid gap-5">
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il piano</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Il PUC prevede 36 alloggi di edilizia residenziale pubblica in quattro ambiti su aree private da
-                  acquisire.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Non è ricostruito in modo completo il bisogno abitativo attuale, il patrimonio ERP esistente,
-                  la sostenibilità economica e il modello di gestione.
-                </p>
-              </div>
-              <div class="rounded-2xl border border-brand-green/20 bg-brand-sage p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Il PTCP prevede che, per l'edilizia sociale, si valutino anche recupero e riconversione di aree
-                  degradate o immobili dismessi, con verifica di sostenibilità e chiarimento di domanda, modello di
-                  intervento e natura della previsione prima della fase attuativa o espropriativa.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-navy p-5 text-white">
-                <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-7 text-slate-100">
-                  <li>• Pubblicare dati aggregati sulla domanda reale.</li>
-                  <li>• Censire il patrimonio ERP e pubblico esistente.</li>
-                  <li>• Confrontare recupero, acquisto, locazione e nuova costruzione.</li>
-                  <li>• Chiarire costi, finanziamenti, gestione e tempi.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
-          <div id="turismo" class="scroll-mt-28 grid gap-6 rounded-3xl border border-slate-200 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 3</p>
-              <h2 class="mt-3 text-3xl font-black uppercase text-brand-navy">Nuovi alberghi e strutture turistiche</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-700">
-                Turismo sì, ma con un tetto chiaro, una fotografia dell'offerta esistente e la verifica di acqua,
-                depurazione, traffico e suolo.
-              </p>
-              <div class="mt-6 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">21</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Ambiti turistici</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">115.681 m²</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Superficie usata per gli indici</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">32.340 m²</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">SUL teorica</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">?</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Tetto reale posti letto</p>
-                </div>
-              </div>
-            </div>
-            <div class="grid gap-5">
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il piano</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Il PUC individua 21 ambiti turistico-ricettivi con superfici e indici edificatori, ma senza una
-                  lettura finale semplice del limite effettivo.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Nei documenti compaiono valori diversi per i posti letto e manca una ricognizione completa
-                  dell'offerta turistica già esistente e dei suoi tassi di utilizzo.
-                </p>
-              </div>
-              <div class="rounded-2xl border border-brand-blue/20 bg-brand-paleBlue p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Gli artt. 119 e 128 del PTCP richiedono un dimensionamento turistico documentato, con ricognizione
-                  dell'offerta alberghiera ed extra-alberghiera, analisi decennale di arrivi e presenze, tassi di
-                  occupazione e priorità al recupero di centri storici, edifici dismessi e aree già insediate.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-navy p-5 text-white">
-                <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-7 text-slate-100">
-                  <li>• Contare l'offerta turistica realmente esistente e usata.</li>
-                  <li>• Capire quale tipologia di struttura manca davvero.</li>
-                  <li>• Fissare un tetto complessivo e un limite per ogni area.</li>
-                  <li>• Verificare gli effetti cumulativi su reti, servizi, paesaggio e suolo.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="ambiente" class="scroll-mt-28 grid gap-6 rounded-3xl border border-slate-200 p-8 shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 4</p>
-              <h2 class="mt-3 text-3xl font-black uppercase text-brand-navy">Controlli ambientali e VAS</h2>
-              <p class="mt-4 text-lg leading-8 text-slate-700">
-                La VAS deve usare dati del territorio giusto, indicatori comprensibili e confrontare alternative
-                ragionevoli prima dell'approvazione definitiva.
-              </p>
-              <div class="mt-6 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">Aquara</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Citata nel rapporto</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">Felitto</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Citato nella sintesi</p>
-                </div>
-                <div class="rounded-2xl bg-brand-sage p-4">
-                  <p class="text-3xl font-black text-brand-navy">Calore</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Citato nella matrice VAS</p>
-                </div>
-                <div class="rounded-2xl bg-brand-paleBlue p-4">
-                  <p class="text-3xl font-black text-brand-navy">N.C.</p>
-                  <p class="mt-1 text-sm font-semibold uppercase text-slate-600">Indicatori non calcolati</p>
-                </div>
-              </div>
-            </div>
-            <div class="grid gap-5">
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa dovrebbe fare la VAS</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Valutare gli effetti del PUC su suolo, acqua, paesaggio, rischio idrogeologico, biodiversità,
-                  mobilità e servizi, definendo anche un monitoraggio nel tempo.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-sand p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  Alcuni riferimenti territoriali non coincidono con Santa Marina e diversi indicatori risultano
-                  non calcolati o non quantificati.
-                </p>
-              </div>
-              <div class="rounded-2xl border border-brand-green/20 bg-brand-sage p-5">
-                <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
-                <p class="mt-3 leading-7 text-slate-700">
-                  La Direttiva 2001/42/CE e il D.Lgs. 152/2006 richiedono che la VAS valuti gli effetti significativi,
-                  confronti alternative ragionevoli e definisca il monitoraggio; se un dato non è quantificabile,
-                  vanno spiegati limiti e metodo qualitativo e verificati i dati territoriali usati.
-                </p>
-              </div>
-              <div class="rounded-2xl bg-brand-navy p-5 text-white">
-                <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-7 text-slate-100">
-                  <li>• Correggere i riferimenti territoriali e verificare i dati collegati.</li>
-                  <li>• Quantificare gli indicatori pertinenti o spiegarne i limiti.</li>
-                  <li>• Confrontare alternativa zero, recupero dell'esistente e scenari con meno consumo di suolo.</li>
-                  <li>• Definire un monitoraggio con soglie, responsabilità e azioni correttive.</li>
-                </ul>
-              </div>
+            <!-- Che cosa chiede -->
+            <div class="rounded-2xl bg-brand-navy p-6 text-white">
+              <h3 class="text-base font-extrabold uppercase">Che cosa chiede</h3>
+              <ul class="mt-4 space-y-3 text-slate-100" role="list">
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Dati aggiornati.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Patrimonio esistente censito.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Fabbisogni dimostrati.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Limiti quantitativi comprensibili.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Valutazioni ambientali riferite al territorio corretto.
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-1 flex-shrink-0" aria-hidden="true">✓</span>
+                  Risposte pubbliche, motivate e verificabili.
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="richieste" class="scroll-mt-28 mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-        <div class="grid gap-6 lg:grid-cols-[1fr_0.8fr]">
+      <!-- ════════════════════════════════════════════════
+           3. QUATTRO OSSERVAZIONI IN BREVE
+      ═════════════════════════════════════════════════ -->
+      <section id="breve" class="scroll-mt-20 mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="breve-h2">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Panoramica</p>
+        <h2 id="breve-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">
+          Quattro osservazioni. Quattro domande.
+        </h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          Non è necessario leggere subito tutti gli elaborati tecnici. Si può partire da una domanda e
+          approfondire successivamente documenti, dati e riferimenti.
+        </p>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2">
+          <!-- Card 1 -->
+          <article class="rounded-3xl border border-slate-200 bg-brand-paleBlue p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 1</p>
+            <h3 class="mt-1 text-xl font-black uppercase text-brand-navy">Case private</h3>
+            <p class="mt-1 text-3xl font-black text-brand-navy">54 alloggi</p>
+            <p class="mt-3 leading-7 text-slate-700">
+              Il PUC prevede 54 nuovi alloggi in 12 aree. Solo 33 delle 1.097 abitazioni non occupate nel 2011
+              sono considerate recuperabili.
+            </p>
+            <p class="mt-3 font-semibold text-slate-700">
+              Domanda: dov'è l'inventario che giustifica il 3%?
+            </p>
+            <div class="mt-4">
+              <a href="#obs1" class="text-sm font-semibold text-brand-blue underline underline-offset-2 hover:text-brand-navy">
+                Leggi la spiegazione
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="rounded-3xl border border-slate-200 bg-brand-sage p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 2</p>
+            <h3 class="mt-1 text-xl font-black uppercase text-brand-navy">Edilizia sociale</h3>
+            <p class="mt-1 text-3xl font-black text-brand-navy">36 alloggi ERP</p>
+            <p class="mt-3 leading-7 text-slate-700">
+              36 alloggi di edilizia residenziale pubblica in 4 aree su terreni indicati come proprietà private
+              da acquisire.
+            </p>
+            <p class="mt-3 font-semibold text-slate-700">
+              Domanda: quante famiglie ne hanno bisogno e quali alternative esistono?
+            </p>
+            <div class="mt-4">
+              <a href="#obs2" class="text-sm font-semibold text-brand-green underline underline-offset-2 hover:text-brand-navy">
+                Leggi la spiegazione
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 3</p>
+            <h3 class="mt-1 text-xl font-black uppercase text-brand-navy">Turismo</h3>
+            <p class="mt-1 text-3xl font-black text-brand-navy">21 ambiti</p>
+            <p class="mt-3 leading-7 text-slate-700">
+              21 ambiti turistico-ricettivi con 115.681 m² e 32.340 m² di SUL teorica, senza un tetto
+              operativo chiaramente leggibile.
+            </p>
+            <p class="mt-3 font-semibold text-slate-700">
+              Domanda: qual è il tetto complessivo e quali reti lo sostengono?
+            </p>
+            <div class="mt-4">
+              <a href="#obs3" class="text-sm font-semibold text-brand-blue underline underline-offset-2 hover:text-brand-navy">
+                Leggi la spiegazione
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="rounded-3xl border border-slate-200 bg-brand-paleBlue p-6 shadow-soft transition hover:-translate-y-0.5 hover:shadow-lg">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 4</p>
+            <h3 class="mt-1 text-xl font-black uppercase text-brand-navy">Ambiente e VAS</h3>
+            <p class="mt-1 text-3xl font-black text-brand-navy">N.C.</p>
+            <p class="mt-3 leading-7 text-slate-700">
+              Nella VAS compaiono Aquara, Felitto e la Riserva del Calore; diversi indicatori risultano
+              non calcolati o non quantificati.
+            </p>
+            <p class="mt-3 font-semibold text-slate-700">
+              Domanda: dati e giudizi sono realmente riferiti a Santa Marina e al Bussento?
+            </p>
+            <div class="mt-4">
+              <a href="#obs4" class="text-sm font-semibold text-brand-green underline underline-offset-2 hover:text-brand-navy">
+                Leggi la spiegazione
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════
+           4–7. OSSERVAZIONI DETTAGLIATE
+      ═════════════════════════════════════════════════ -->
+      <section id="osservazioni" class="scroll-mt-20 bg-white py-14" aria-label="Le quattro osservazioni">
+        <div class="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+
+          <!-- ── OSSERVAZIONE 1 ── -->
+          <div id="obs1" class="scroll-mt-20 rounded-3xl border border-slate-200 p-6 shadow-soft sm:p-8" aria-labelledby="obs1-h2">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 1</p>
+            <h2 id="obs1-h2" class="mt-2 text-2xl font-black uppercase text-brand-navy sm:text-3xl">
+              Abitazioni private
+            </h2>
+            <div class="mt-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p class="text-lg leading-8 text-slate-700">
+                  Prima di aprire nuove aree edificabili, bisogna sapere quante case servono davvero
+                  e quante possono essere recuperate.
+                </p>
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-3xl font-black text-brand-navy">54</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Nuovi alloggi</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-3xl font-black text-brand-navy">12</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Ambiti AT/rcu</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-3xl font-black text-brand-navy">1.097</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Abitazioni non occupate (2011)</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-3xl font-black text-brand-navy">33</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Considerate recuperabili</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid gap-4">
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il Piano</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Il PUC localizza 54 nuovi alloggi privati in dodici aree di trasformazione. Il calcolo
+                    considera inoltre 1.097 abitazioni che nel 2011 non risultavano occupate da famiglie
+                    residenti, ma ne ritiene recuperabili soltanto 33, pari a circa il 3%.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Tra gli elaborati pubblicati ed esaminati non è stato individuato un inventario completo
+                    e aggiornato capace di distinguere seconde case effettivamente utilizzate, locazioni
+                    turistiche, abitazioni vuote, immobili degradati, edifici sottoutilizzati e patrimonio
+                    concretamente recuperabile.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-brand-blue/20 bg-brand-paleBlue p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Il PTCP richiede che il fabbisogno abitativo sia calcolato considerando famiglie, bisogno
+                    arretrato e futuro, orizzonte decennale, patrimonio esistente, capacità residua e
+                    possibilità di recupero. Anche le norme del PUC richiamano l'inventario del patrimonio
+                    e la priorità del riuso.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-navy p-5 text-white">
+                  <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
+                  <ul class="mt-2 space-y-2 text-sm leading-7 text-slate-100">
+                    <li>• Aggiornare i dati su popolazione e famiglie.</li>
+                    <li>• Censire e classificare le abitazioni esistenti.</li>
+                    <li>• Calcolare il fabbisogno residuo dopo recupero, cambi d'uso e capacità disponibile.</li>
+                    <li>• Ridurre, stralciare o rendere temporaneamente non attuabili le aree non giustificate.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="mt-6 rounded-2xl border-l-4 border-brand-blue bg-brand-paleBlue/60 px-5 py-4 text-base font-semibold leading-7 text-slate-800">
+              Prima di costruire 54 nuove abitazioni, bisogna contare e classificare correttamente quelle
+              che già esistono.
+            </p>
+          </div>
+
+          <!-- ── OSSERVAZIONE 2 ── -->
+          <div id="obs2" class="scroll-mt-20 rounded-3xl border border-slate-200 p-6 shadow-soft sm:p-8" aria-labelledby="obs2-h2">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 2</p>
+            <h2 id="obs2-h2" class="mt-2 text-2xl font-black uppercase text-brand-navy sm:text-3xl">
+              Edilizia sociale
+            </h2>
+            <div class="mt-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p class="text-lg leading-8 text-slate-700">
+                  Il diritto alla casa va sostenuto, ma domanda reale, patrimonio disponibile, costi e
+                  modalità devono essere chiari prima di costruire o acquisire terreni.
+                </p>
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-3xl font-black text-brand-navy">36</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Alloggi ERP previsti</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-3xl font-black text-brand-navy">4</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Ambiti AT/erp</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-2xl font-black text-brand-navy">16.668 m²</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Superficie territoriale</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-sm font-semibold leading-6 text-slate-600">Costi, fondi e tempi da chiarire</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid gap-4">
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il Piano</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Il PUC prevede 36 alloggi di edilizia residenziale pubblica in quattro ambiti, su aree
+                    indicate come proprietà private da acquisire.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Non è ricostruito in modo unitario il bisogno abitativo attuale, il patrimonio ERP e
+                    pubblico disponibile, il numero degli immobili vuoti o recuperabili, la sostenibilità
+                    economica, le fonti di finanziamento, il modello di gestione e la natura urbanistica
+                    delle singole previsioni.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-brand-green/20 bg-brand-sage p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Il PTCP prevede che siano valutati anche il recupero, la riconversione di aree degradate
+                    e la sostituzione di immobili dismessi. Quando le previsioni interessano terreni privati,
+                    occorre inoltre chiarire la natura conformativa, perequativa o eventualmente espropriativa
+                    della scelta e rispettare le norme applicabili.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-navy p-5 text-white">
+                  <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
+                  <ul class="mt-2 space-y-2 text-sm leading-7 text-slate-100">
+                    <li>• Pubblicare dati aggregati sulla domanda reale.</li>
+                    <li>• Censire il patrimonio ERP e pubblico.</li>
+                    <li>• Confrontare recupero, acquisto, locazione e nuova costruzione.</li>
+                    <li>• Chiarire costi, fondi, soggetto attuatore, gestione e tempi.</li>
+                    <li>• Chiarire la natura delle previsioni sui terreni privati.</li>
+                    <li>• Non avviare atti attuativi o espropriativi prima delle verifiche necessarie.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="mt-6 rounded-2xl border-l-4 border-brand-green bg-brand-sage/60 px-5 py-4 text-base font-semibold leading-7 text-slate-800">
+              Edilizia sociale sì, ma bisogna sapere per chi, quanta, dove, con quali risorse e perché
+              costruire nuovi immobili invece di recuperare ciò che esiste.
+            </p>
+          </div>
+
+          <!-- ── OSSERVAZIONE 3 ── -->
+          <div id="obs3" class="scroll-mt-20 rounded-3xl border border-slate-200 p-6 shadow-soft sm:p-8" aria-labelledby="obs3-h2">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Osservazione 3</p>
+            <h2 id="obs3-h2" class="mt-2 text-2xl font-black uppercase text-brand-navy sm:text-3xl">
+              Turismo
+            </h2>
+            <div class="mt-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p class="text-lg leading-8 text-slate-700">
+                  Turismo sì, ma con un tetto chiaro, una fotografia dell'offerta esistente e la verifica
+                  di acqua, depurazione, traffico e suolo.
+                </p>
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-3xl font-black text-brand-navy">21</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Ambiti turistici</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-2xl font-black text-brand-navy">115.681 m²</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Superficie usata per gli indici</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-2xl font-black text-brand-navy">32.340 m²</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">SUL teorica</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-xs font-semibold leading-6 text-slate-600">
+                      Assenza di un tetto operativo chiaramente leggibile
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid gap-4">
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa prevede il Piano</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Il PUC individua 21 ambiti turistico-ricettivi e assegna alle singole aree superfici e
+                    indici edificatori.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Negli elaborati compaiono quantità riferite a fasi, componenti o calcoli differenti, senza
+                    una tabella finale che chiarisca quali valori siano stati superati, confermati o cumulati
+                    e quale sia il tetto effettivamente vincolante.
+                  </p>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Non è stata inoltre individuata una ricognizione completa e aggiornata di alberghi, B&amp;B,
+                    case vacanza, locazioni brevi, seconde case utilizzate turisticamente, strutture inattive e
+                    relativi tassi di occupazione.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-brand-blue/20 bg-brand-paleBlue p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Gli articoli 119 e 128 del PTCP richiedono un dimensionamento documentato, basato
+                    sull'offerta esistente, su arrivi, presenze, coefficienti di occupazione, patrimonio
+                    inutilizzato e programmi di investimento.
+                  </p>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    La capacità inutilizzata, riattivabile o recuperabile, quando idonea a soddisfare la
+                    stessa domanda, deve essere considerata nel calcolo del fabbisogno aggiuntivo.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-navy p-5 text-white">
+                  <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
+                  <ul class="mt-2 space-y-2 text-sm leading-7 text-slate-100">
+                    <li>• Contare l'offerta turistica realmente esistente.</li>
+                    <li>• Chiarire quale tipologia di struttura manca.</li>
+                    <li>• Fissare un tetto complessivo e un limite per ogni ambito.</li>
+                    <li>• Distinguere superficie ricettiva e funzioni accessorie.</li>
+                    <li>• Verificare gli effetti su acqua, fognature, depurazione, traffico, parcheggi, rifiuti, paesaggio e suolo.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="mt-6 rounded-2xl border-l-4 border-brand-blue bg-brand-paleBlue/60 px-5 py-4 text-base font-semibold leading-7 text-slate-800">
+              Prima di rendere operative ventuno aree turistiche bisogna sapere quanti posti letto esistono,
+              quanti ne servono e quanti il territorio riesce a sostenere.
+            </p>
+          </div>
+
+          <!-- ── OSSERVAZIONE 4 ── -->
+          <div id="obs4" class="scroll-mt-20 rounded-3xl border border-slate-200 p-6 shadow-soft sm:p-8" aria-labelledby="obs4-h2">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-green">Osservazione 4</p>
+            <h2 id="obs4-h2" class="mt-2 text-2xl font-black uppercase text-brand-navy sm:text-3xl">
+              VAS e ambiente
+            </h2>
+            <div class="mt-6 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+              <div>
+                <p class="text-lg leading-8 text-slate-700">
+                  La VAS deve usare dati del territorio giusto, indicatori comprensibili e confrontare
+                  alternative ragionevoli prima dell'approvazione definitiva.
+                </p>
+                <div class="mt-5 grid grid-cols-2 gap-3">
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-2xl font-black text-brand-navy">Aquara</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Citata nel Rapporto ambientale</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-2xl font-black text-brand-navy">Felitto</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Citato nella Sintesi non tecnica</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-sage p-4">
+                    <p class="text-2xl font-black text-brand-navy">Calore</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Citato nella matrice VAS</p>
+                  </div>
+                  <div class="rounded-2xl bg-brand-paleBlue p-4">
+                    <p class="text-2xl font-black text-brand-navy">N.C.</p>
+                    <p class="mt-1 text-xs font-semibold uppercase text-slate-600">Indicatori non calcolati</p>
+                  </div>
+                </div>
+              </div>
+              <div class="grid gap-4">
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa dovrebbe fare la VAS</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    La Valutazione Ambientale Strategica deve valutare gli effetti del PUC su suolo, acqua,
+                    paesaggio, fiumi, boschi, rischio idrogeologico, biodiversità, mobilità e servizi; deve
+                    confrontare alternative ragionevoli e definire il monitoraggio.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-sand p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Cosa non è chiaro</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Nel Rapporto ambientale compare Aquara; nella Sintesi non tecnica compare Felitto; una
+                    matrice richiama la Riserva fluviale del Calore, mentre il PUC disciplina la Riserva del
+                    Fiume Bussento.
+                  </p>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Diversi indicatori relativi a frane, boschi, versanti, fasce fluviali, aree agricole e
+                    aree tutelate risultano non calcolati o non quantificati.
+                  </p>
+                </div>
+                <div class="rounded-2xl border border-brand-green/20 bg-brand-sage p-5">
+                  <h3 class="font-extrabold uppercase text-brand-navy">Regola</h3>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    La Direttiva 2001/42/CE e il D.Lgs. 152/2006 richiedono la valutazione degli effetti
+                    significativi, il confronto tra alternative e il monitoraggio.
+                  </p>
+                  <p class="mt-2 leading-7 text-slate-700">
+                    Quando un indicatore pertinente non può essere quantificato con dati e mezzi ragionevolmente
+                    disponibili, devono essere spiegati i limiti conoscitivi, le difficoltà e il metodo
+                    qualitativo utilizzato.
+                  </p>
+                </div>
+                <div class="rounded-2xl bg-brand-navy p-5 text-white">
+                  <h3 class="font-extrabold uppercase">Cosa si chiede</h3>
+                  <ul class="mt-2 space-y-2 text-sm leading-7 text-slate-100">
+                    <li>• Correggere i riferimenti territoriali.</li>
+                    <li>• Verificare dati, mappe, indicatori e giudizi collegati.</li>
+                    <li>• Quantificare gli indicatori pertinenti o spiegarne i limiti.</li>
+                    <li>• Confrontare alternativa zero, recupero e scenari con minore consumo di suolo.</li>
+                    <li>• Valutare gli effetti cumulativi.</li>
+                    <li>• Definire monitoraggio, valori iniziali, responsabili, frequenze, soglie e azioni correttive.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="mt-6 rounded-2xl border-l-4 border-brand-green bg-brand-sage/60 px-5 py-4 text-base font-semibold leading-7 text-slate-800">
+              Non basta sostituire alcuni nomi. Bisogna controllare che dati, mappe, indicatori e conclusioni
+              siano stati realmente costruiti per Santa Marina.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════
+           8. DOCUMENTI
+      ═════════════════════════════════════════════════ -->
+      <section id="documenti" class="scroll-mt-20 mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="documenti-h2">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Atti e pubblicazioni</p>
+        <h2 id="documenti-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">
+          Documenti
+        </h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          Qui sono raccolte la guida divulgativa e le versioni integrali dei documenti. Per il testo
+          completo fanno fede gli atti protocollati e gli elaborati ufficiali.
+        </p>
+
+        <!-- Griglia documenti — popolata da JS -->
+        <div id="documents-grid" class="mt-8"></div>
+
+        <!-- Atti successivi — visibili solo se SUBSEQUENT_ACTS ha elementi published -->
+        <div id="subsequent-acts-section" class="mt-10 hidden">
+          <h3 class="text-lg font-extrabold uppercase text-brand-navy">Atti successivi</h3>
+          <p class="mt-1 text-sm text-slate-600">
+            Nota al Commissario, ricevute, risposte e controdeduzioni.
+          </p>
+          <div id="subsequent-acts-grid" class="mt-4 grid gap-4 sm:grid-cols-2"></div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════
+           9. STATO DEL PROCEDIMENTO
+      ═════════════════════════════════════════════════ -->
+      <section id="stato" class="scroll-mt-20 bg-white py-14" aria-labelledby="stato-h2">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Procedimento</p>
+          <h2 id="stato-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">
+            Cosa succede adesso
+          </h2>
+          <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+            Questa sezione mostra quali passaggi sono stati completati, quali sono in corso e quali
+            dipendono dalle determinazioni dell'Amministrazione.
+          </p>
+          <!-- Timeline — popolata da JS -->
+          <ol id="timeline-list" class="mt-8 space-y-3" aria-label="Fasi del procedimento"></ol>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════
+           10–11. COSA SI CHIEDE / COSA NON SI CHIEDE
+      ═════════════════════════════════════════════════ -->
+      <section id="richieste" class="scroll-mt-20 mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="richieste-h2">
+        <div class="grid gap-8 lg:grid-cols-2">
+
+          <!-- 10. Cosa si chiede al Commissario -->
           <div class="rounded-3xl bg-brand-navy p-8 text-white shadow-soft">
-            <p class="text-sm font-bold uppercase tracking-[0.22em] text-slate-200">Cosa si chiede al Commissario</p>
-            <ol class="mt-5 space-y-3 text-base leading-7 text-slate-100">
-              <li>1. Acquisire e valutare separatamente le quattro osservazioni.</li>
-              <li>2. Pubblicare atti istruttori e dati decisivi eventualmente mancanti.</li>
-              <li>3. Convocare un incontro tecnico con uffici, progettisti e soggetti della VAS.</li>
-              <li>4. Spiegare quali dati e fonti giustificano case, ERP, turismo e giudizi ambientali.</li>
-              <li>5. Ridurre, stralciare o condizionare le previsioni che dipendono da verifiche non completate.</li>
-              <li>6. Rafforzare pubblicità e partecipazione se Piano o VAS cambiano in modo sostanziale.</li>
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-300">Al Commissario straordinario</p>
+            <h2 id="richieste-h2" class="mt-2 text-2xl font-black uppercase">
+              Cosa si chiede al Commissario
+            </h2>
+            <ol class="mt-5 list-none space-y-3 text-base leading-7 text-slate-100">
+              <li><b>1.</b> Acquisire e valutare separatamente le quattro osservazioni.</li>
+              <li><b>2.</b> Pubblicare gli atti e i dati decisivi non presenti tra gli elaborati disponibili.</li>
+              <li><b>3.</b> Convocare un incontro tecnico con uffici, progettisti e soggetti VAS.</li>
+              <li><b>4.</b> Spiegare dati, fonti e calcoli utilizzati.</li>
+              <li><b>5.</b> Ridurre, stralciare o condizionare le previsioni dipendenti da verifiche non completate.</li>
+              <li><b>6.</b> Rafforzare pubblicità e partecipazione in caso di modifiche sostanziali.</li>
             </ol>
+            <p class="mt-5 rounded-xl bg-white/10 px-4 py-3 text-sm leading-7 text-slate-200">
+              Non si chiede al Commissario di dare ragione a una persona. Si chiede di verificare e rendere
+              comprensibili i presupposti delle decisioni.
+            </p>
           </div>
-          <div class="space-y-6">
+
+          <!-- 11. Cosa non si chiede -->
+          <div>
             <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-soft">
-              <h2 class="text-2xl font-black uppercase text-brand-navy">Cosa non si chiede</h2>
+              <h2 id="non-si-chiede" class="text-2xl font-black uppercase text-brand-navy">
+                Cosa non si chiede
+              </h2>
               <p class="mt-4 leading-8 text-slate-700">
-                Non si chiede di fermare qualsiasi sviluppo né di annullare automaticamente l'intero PUC.
-                Si chiede di dimostrare i numeri prima delle decisioni irreversibili.
+                Non si chiede di fermare qualsiasi sviluppo, vietare nuove abitazioni, impedire il turismo
+                o rinunciare all'edilizia sociale.
               </p>
-            </div>
-            <div class="rounded-3xl border border-slate-200 bg-brand-sage p-8 shadow-soft">
-              <h2 class="text-2xl font-black uppercase text-brand-navy">Come partecipare</h2>
-              <p class="mt-4 leading-8 text-slate-700">
-                Leggere una domanda, controllare una fonte, segnalare un documento, offrire una competenza o
-                partecipare a un incontro, anche senza esporsi pubblicamente.
+              <p class="mt-3 leading-8 text-slate-700">
+                Non si sostiene neppure che ogni errore materiale renda automaticamente nullo l'intero PUC.
+              </p>
+              <p class="mt-3 leading-8 text-slate-700">
+                Si chiede che le trasformazioni più rilevanti siano fondate su dati aggiornati, istruttorie
+                verificabili e valutazioni riferite correttamente al territorio.
               </p>
             </div>
           </div>
         </div>
 
-        <div class="mt-12 text-center">
-          <p class="text-3xl font-black uppercase leading-tight text-brand-navy sm:text-5xl">
-            Contare ciò che esiste. Capire ciò che serve. Verificare ciò che il territorio può sostenere.
-            Poi decidere quanto costruire.
-          </p>
-          <p class="mt-5 text-sm text-slate-600">
-            Documenti completi: pagina Facebook “Prima i numeri, poi il cemento”.
+        <div class="mt-10 text-center">
+          <p class="text-2xl font-black uppercase leading-tight text-brand-navy sm:text-3xl">
+            Capire ciò che esiste. Dimostrare ciò che serve.<br class="hidden sm:inline" />
+            Verificare ciò che il territorio può sostenere. Poi decidere quanto costruire.
           </p>
         </div>
       </section>
+
+      <!-- ════════════════════════════════════════════════
+           12. FAQ
+      ═════════════════════════════════════════════════ -->
+      <section id="faq" class="scroll-mt-20 bg-white py-14" aria-labelledby="faq-h2">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Domande frequenti</p>
+          <h2 id="faq-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">FAQ</h2>
+
+          <div class="mt-8 space-y-3">
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Siete contrari a ogni nuova costruzione?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                No. Le osservazioni non chiedono di bloccare ogni trasformazione. Chiedono che le previsioni
+                siano fondate su dati aggiornati, fabbisogni dimostrati e valutazioni verificabili. Se i dati
+                confermano la necessità di nuove abitazioni, edilizia sociale o strutture turistiche, quelle
+                previsioni possono restare.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Siete contrari agli alberghi e al turismo?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                No. Il turismo è una risorsa importante per il territorio. Si chiede di sapere quante strutture
+                esistono, quali sono i tassi di utilizzo, quale tipo di offerta manca realmente e quali
+                infrastrutture (acqua, fognature, strade, depurazione) potrebbero essere messe sotto pressione.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Siete contrari alle case popolari?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                No. L'edilizia sociale risponde a un bisogno reale. Si chiede di sapere quante famiglie hanno
+                bisogno di un alloggio pubblico, quale patrimonio è già disponibile o recuperabile, e se
+                costruire nuovi immobili è la soluzione più efficiente rispetto ad acquisto, locazione o
+                recupero dell'esistente.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Perché vengono messi in discussione dati del 2001 e del 2011?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                I dati censuari del 2001 e del 2011 sono quelli usati dagli elaborati del PUC. Le osservazioni
+                non li contestano come fonti storiche, ma chiedono che siano aggiornati o integrati con dati
+                più recenti prima di assumere decisioni urbanistiche che produrranno effetti per i prossimi
+                decenni.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Che cosa significano PUC, PTCP, VAS ed ERP?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                <ul class="space-y-2">
+                  <li><strong>PUC</strong> — Piano Urbanistico Comunale: il documento che stabilisce come può essere usato e trasformato il territorio del comune.</li>
+                  <li><strong>PTCP</strong> — Piano Territoriale di Coordinamento Provinciale: le regole sovraordinate della Provincia di Salerno, a cui il PUC deve conformarsi.</li>
+                  <li><strong>VAS</strong> — Valutazione Ambientale Strategica: la procedura che valuta gli effetti del PUC sull'ambiente prima dell'approvazione definitiva.</li>
+                  <li><strong>ERP</strong> — Edilizia Residenziale Pubblica: le abitazioni costruite o gestite da soggetti pubblici per famiglie con redditi bassi.</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Chi ha presentato le osservazioni?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                Le osservazioni sono state predisposte e presentate da un cittadino residente. Gli atti non
+                sono anonimi, ma l'iniziativa non è costruita per promuovere il nome del firmatario.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                È un'iniziativa elettorale?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                No. L'iniziativa non sostiene liste o candidati e riguarda esclusivamente la comprensione,
+                la verifica e la discussione pubblica del PUC.
+              </div>
+            </details>
+
+            <details class="group rounded-2xl border border-slate-200 bg-brand-sand">
+              <summary class="flex cursor-pointer items-center justify-between gap-4 p-5 font-extrabold text-brand-navy">
+                Che cosa succede se le osservazioni vengono respinte?
+                <span class="ml-auto flex-shrink-0 text-lg transition-transform duration-200 group-open:rotate-180" aria-hidden="true">▾</span>
+              </summary>
+              <div class="border-t border-slate-200 px-5 pb-5 pt-4 leading-7 text-slate-700">
+                Le controdeduzioni dell'Amministrazione saranno rese pubbliche in questa pagina. L'obiettivo
+                non è vincere una disputa, ma garantire che le decisioni siano motivate, comprensibili e
+                verificabili da chiunque voglia controllare i presupposti del Piano.
+              </div>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════
+           13. FONTI E TRASPARENZA
+      ═════════════════════════════════════════════════ -->
+      <section id="fonti" class="scroll-mt-20 mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="fonti-h2">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Trasparenza</p>
+        <h2 id="fonti-h2" class="mt-2 text-3xl font-black uppercase text-brand-navy sm:text-4xl">
+          Fonti e trasparenza
+        </h2>
+
+        <!-- Griglia fonti — popolata da JS -->
+        <div id="sources-grid" class="mt-8 grid gap-5 sm:grid-cols-2"></div>
+
+        <!-- Metodo -->
+        <div class="mt-8 rounded-2xl border border-brand-blue/20 bg-brand-paleBlue p-6">
+          <h3 class="text-base font-extrabold uppercase text-brand-navy">Metodo</h3>
+          <p class="mt-3 leading-7 text-slate-700">
+            I contenuti della pagina sono una sintesi divulgativa delle osservazioni. Le formulazioni sono
+            state semplificate per facilitarne la lettura, senza sostituire il testo integrale degli atti.
+          </p>
+          <p class="mt-3 leading-7 text-slate-700">
+            Per i contenuti completi fanno fede le osservazioni protocollate, gli elaborati ufficiali del
+            PUC e le determinazioni dell'Amministrazione.
+          </p>
+        </div>
+
+        <!-- Meta informazioni — popolate da JS -->
+        <div id="site-meta" class="mt-5 text-sm text-slate-500"></div>
+      </section>
+
     </main>
 
-    <footer class="border-t border-slate-200 bg-white">
-      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-sm text-slate-500 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-        <p>Sintesi divulgativa: per il contenuto completo valgono le osservazioni protocollate e gli elaborati ufficiali.</p>
-        <p>Riferimenti: PUC Santa Marina, PTCP Provincia di Salerno, Direttiva 2001/42/CE, D.Lgs. 152/2006.</p>
+    <!-- ════════════════════════════════════════════════
+         14. FOOTER
+    ═════════════════════════════════════════════════ -->
+    <footer class="border-t border-slate-200 bg-brand-navy text-white">
+      <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="lg:col-span-2">
+            <p class="text-lg font-extrabold uppercase tracking-wide">Prima i numeri, poi il cemento</p>
+            <p class="mt-1 text-sm text-slate-300">Iniziativa civica sul PUC di Santa Marina</p>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Perché i numeri si possono correggere. Il suolo consumato no.
+            </p>
+            <p class="mt-4 text-sm leading-7 text-slate-300">
+              Documenti completi disponibili in questa pagina.
+            </p>
+            <p class="mt-3 text-xs leading-6 text-slate-400">
+              Sintesi divulgativa: per il contenuto completo fanno fede gli atti protocollati
+              e gli elaborati ufficiali.
+            </p>
+            <p id="footer-last-updated" class="mt-2 text-xs text-slate-500">
+              <!-- Populated by JS if SITE.lastUpdated is set -->
+            </p>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">Navigazione</p>
+            <nav aria-label="Navigazione footer" class="mt-3 flex flex-col gap-2">
+              <a href="#breve"        class="text-sm text-slate-300 hover:text-white">In breve</a>
+              <a href="#perche"       class="text-sm text-slate-300 hover:text-white">Perché nasce</a>
+              <a href="#osservazioni" class="text-sm text-slate-300 hover:text-white">Osservazioni</a>
+              <a href="#documenti"    class="text-sm text-slate-300 hover:text-white">Documenti</a>
+              <a href="#stato"        class="text-sm text-slate-300 hover:text-white">Stato</a>
+              <a href="#richieste"    class="text-sm text-slate-300 hover:text-white">Richieste</a>
+              <a href="#faq"          class="text-sm text-slate-300 hover:text-white">FAQ</a>
+              <a href="#fonti"        class="text-sm text-slate-300 hover:text-white">Fonti</a>
+            </nav>
+          </div>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-slate-400">Riferimenti</p>
+            <p class="mt-3 text-xs leading-6 text-slate-400">
+              PUC Santa Marina · PTCP Provincia di Salerno · Direttiva 2001/42/CE · D.Lgs. 152/2006
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
+
+    <!-- ════════════════════════════════════════════════
+         SCRIPT — data.js + rendering dinamico
+    ═════════════════════════════════════════════════ -->
+    <script src="data.js"></script>
+    <script>
+      "use strict";
+
+      /* ── Mobile nav toggle ─────────────────────────────────── */
+      (function () {
+        var btn    = document.getElementById("nav-toggle");
+        var menu   = document.getElementById("mobile-nav");
+        var iOpen  = document.getElementById("nav-icon-open");
+        var iClose = document.getElementById("nav-icon-close");
+        if (!btn || !menu) return;
+        btn.addEventListener("click", function () {
+          var open = menu.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", String(!open));
+          if (iOpen)  iOpen.classList.toggle("hidden", !open);
+          if (iClose) iClose.classList.toggle("hidden", open);
+        });
+        menu.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", function () {
+            menu.classList.add("hidden");
+            btn.setAttribute("aria-expanded", "false");
+            if (iOpen)  iOpen.classList.remove("hidden");
+            if (iClose) iClose.classList.add("hidden");
+          });
+        });
+      })();
+
+      /* ── Helper: escape HTML ───────────────────────────────── */
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      /* ── Documents ─────────────────────────────────────────── */
+      (function () {
+        var grid = document.getElementById("documents-grid");
+        if (!grid) return;
+        var docs = (typeof DOCUMENTS !== "undefined") ? DOCUMENTS : [];
+        var published   = docs.filter(function (d) { return d.published; });
+        var unpublished = docs.filter(function (d) { return !d.published; });
+
+        if (!published.length && !unpublished.length) return;
+
+        var wrapper = document.createElement("div");
+        wrapper.className = "grid gap-6 sm:grid-cols-2";
+
+        published.forEach(function (doc) {
+          var card = document.createElement("div");
+          card.className = doc.highlight
+            ? "col-span-full rounded-3xl border-2 border-brand-blue bg-brand-paleBlue p-6 shadow-soft"
+            : "rounded-3xl border border-slate-200 bg-white p-6 shadow-soft";
+
+          var meta = [];
+          if (doc.version)   meta.push("Versione&nbsp;" + esc(doc.version));
+          if (doc.date)      meta.push(esc(doc.date));
+          if (doc.pagine)    meta.push(esc(String(doc.pagine)) + "&nbsp;pagine");
+          if (doc.protocollo) meta.push("Prot.&nbsp;" + esc(doc.protocollo));
+
+          var statusBadge = doc.status
+            ? '<span class="inline-block rounded-full bg-brand-green/20 px-2 py-0.5 text-xs font-semibold text-brand-green">' + esc(doc.status) + '</span>'
+            : '';
+
+          var actions = doc.file
+            ? '<div class="mt-4 flex flex-wrap gap-2">'
+              + '<a href="' + esc(doc.file) + '" target="_blank" rel="noopener" class="rounded-lg bg-brand-navy px-4 py-2 text-xs font-bold text-white hover:bg-brand-blue">Apri PDF</a>'
+              + '<a href="' + esc(doc.file) + '" download class="rounded-lg border border-brand-navy px-4 py-2 text-xs font-bold text-brand-navy hover:bg-brand-navy hover:text-white">Scarica PDF</a>'
+              + '</div>'
+            : '';
+
+          card.innerHTML = ''
+            + '<div class="flex flex-wrap items-start justify-between gap-2">'
+            + '<h3 class="text-base font-extrabold uppercase text-brand-navy">' + esc(doc.title) + '</h3>'
+            + statusBadge
+            + '</div>'
+            + '<p class="mt-2 leading-7 text-slate-700">' + esc(doc.description) + '</p>'
+            + (meta.length ? '<p class="mt-1 text-xs text-slate-500">' + meta.join(' · ') + '</p>' : '')
+            + actions;
+
+          wrapper.appendChild(card);
+        });
+
+        grid.appendChild(wrapper);
+
+        if (unpublished.length) {
+          var note = document.createElement("div");
+          note.className = "mt-6 rounded-2xl border border-dashed border-slate-300 p-5";
+          var items = unpublished.map(function (d) {
+            return '<li class="flex items-center gap-3">'
+              + '<span class="inline-block rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">' + esc(d.status) + '</span>'
+              + '<span class="text-sm text-slate-700">' + esc(d.title) + '</span>'
+              + '</li>';
+          }).join('');
+          note.innerHTML = '<p class="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-slate-500">In pubblicazione</p>'
+            + '<ul class="space-y-2">' + items + '</ul>';
+          grid.appendChild(note);
+        }
+      })();
+
+      /* ── Atti successivi ───────────────────────────────────── */
+      (function () {
+        var section = document.getElementById("subsequent-acts-section");
+        var grid    = document.getElementById("subsequent-acts-grid");
+        if (!section || !grid) return;
+        var acts = (typeof SUBSEQUENT_ACTS !== "undefined") ? SUBSEQUENT_ACTS : [];
+        var visible = acts.filter(function (a) { return a.published; });
+        if (!visible.length) return;
+        section.classList.remove("hidden");
+        visible.forEach(function (a) {
+          var card = document.createElement("div");
+          card.className = "rounded-2xl border border-slate-200 bg-white p-5 shadow-soft";
+          card.innerHTML = '<h4 class="font-extrabold text-brand-navy">' + esc(a.title) + '</h4>'
+            + '<p class="mt-2 text-sm text-slate-700">' + esc(a.description) + '</p>';
+          grid.appendChild(card);
+        });
+      })();
+
+      /* ── Timeline ──────────────────────────────────────────── */
+      (function () {
+        var list = document.getElementById("timeline-list");
+        if (!list) return;
+        var steps = (typeof TIMELINE !== "undefined") ? TIMELINE : [];
+        steps.forEach(function (step, idx) {
+          var isCompleted = step.status === "completed";
+          var isCurrent   = step.status === "current";
+
+          var dotClass = isCompleted
+            ? "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-green text-white text-xs font-bold"
+            : isCurrent
+            ? "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-brand-blue text-white text-xs font-bold ring-2 ring-brand-blue ring-offset-2"
+            : "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-slate-200 text-slate-500 text-xs font-bold";
+
+          var labelClass = (isCompleted || isCurrent)
+            ? "font-bold text-slate-900"
+            : "font-semibold text-slate-500";
+
+          var badge = isCompleted
+            ? ' <span class="ml-2 text-xs font-semibold text-brand-green">Completato</span>'
+            : isCurrent
+            ? ' <span class="ml-2 text-xs font-semibold text-brand-blue">In corso</span>'
+            : '';
+
+          var extras = [];
+          if (step.date)       extras.push(esc(step.date));
+          if (step.protocollo) extras.push("Prot. " + esc(step.protocollo));
+          var extrasHtml = extras.length
+            ? '<p class="mt-0.5 text-xs text-slate-500">' + extras.join(' · ') + '</p>'
+            : '';
+
+          var descHtml = step.description
+            ? '<p class="mt-1 text-sm text-slate-600">' + esc(step.description) + '</p>'
+            : '';
+
+          var linkHtml = step.link
+            ? '<a href="' + esc(step.link) + '" target="_blank" rel="noopener" class="mt-1 inline-block text-xs font-semibold text-brand-blue underline">Vedi documento</a>'
+            : '';
+
+          var li = document.createElement("li");
+          li.className = "flex items-start gap-4";
+          li.innerHTML = '<div class="' + dotClass + '" aria-hidden="true">' + (idx + 1) + '</div>'
+            + '<div class="min-w-0 flex-1 rounded-xl border border-slate-200 bg-white px-4 py-3">'
+            + '<p class="' + labelClass + '">' + esc(step.label) + badge + '</p>'
+            + descHtml
+            + extrasHtml
+            + linkHtml
+            + '</div>';
+          list.appendChild(li);
+        });
+      })();
+
+      /* ── Fonti ─────────────────────────────────────────────── */
+      (function () {
+        var grid = document.getElementById("sources-grid");
+        if (!grid || typeof SOURCES === "undefined") return;
+        Object.keys(SOURCES).forEach(function (key) {
+          var group = SOURCES[key];
+          var card = document.createElement("div");
+          card.className = "rounded-2xl border border-slate-200 bg-white p-5";
+          var items = group.items.map(function (item) {
+            return item.url
+              ? '<li><a href="' + esc(item.url) + '" target="_blank" rel="noopener" class="text-sm text-brand-blue underline underline-offset-2 hover:text-brand-navy">' + esc(item.label) + '</a></li>'
+              : '<li class="text-sm text-slate-700">' + esc(item.label) + '</li>';
+          }).join('');
+          card.innerHTML = '<h3 class="text-sm font-extrabold uppercase text-brand-navy">' + esc(group.label) + '</h3>'
+            + '<ul class="mt-3 space-y-2">' + items + '</ul>';
+          grid.appendChild(card);
+        });
+      })();
+
+      /* ── Meta sito ─────────────────────────────────────────── */
+      (function () {
+        if (typeof SITE === "undefined") return;
+        var meta = document.getElementById("site-meta");
+        if (meta) {
+          var parts = [];
+          if (SITE.version)     parts.push("Versione pagina: " + esc(SITE.version));
+          if (SITE.lastUpdated) parts.push("Ultimo aggiornamento: " + esc(SITE.lastUpdated));
+          if (SITE.canonical)   parts.push('<a href="' + esc(SITE.canonical) + '" class="text-brand-blue underline">URL canonico</a>');
+          if (parts.length) meta.innerHTML = parts.join(' · ');
+        }
+        var footer = document.getElementById("footer-last-updated");
+        if (footer && SITE.lastUpdated) {
+          footer.textContent = "Ultimo aggiornamento: " + SITE.lastUpdated;
+        }
+      })();
+    </script>
+
   </body>
 </html>
