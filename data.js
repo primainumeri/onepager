@@ -104,6 +104,10 @@ var SUBSEQUENT_ACTS = [];
 // STATO DEL PROCEDIMENTO
 // Per ogni passaggio: impostare status ("completed" | "current" | "pending")
 // e compilare description, date, protocollo, link quando disponibili.
+// Esempio di voce aggiornata:
+// { id: "deposito", label: "Deposito al protocollo", status: "completed",
+//   description: "Quattro osservazioni depositate allo sportello del Comune.",
+//   date: "luglio 2025", protocollo: "PROT/2025/XXXX", link: "" },
 // ────────────────────────────────────────────────────────────────────────────
 var TIMELINE = [
   { id: "lettura",          label: "Lettura degli elaborati",             status: "pending", description: "", date: "", protocollo: "", link: "" },
